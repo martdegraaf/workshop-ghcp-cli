@@ -119,6 +119,25 @@ npx vitest run src/lib/games.test.ts
 
 ---
 
+## Reporting Results
+
+After running the checks, report the outcome in this format:
+
+- List every command that ran, each with a status of **passed**, **failed**, or **blocked** (could not run, e.g. missing dependencies or environment error).
+- Include test counts, durations, errors, warnings, and other metrics only when the tool actually reports them. Never estimate or invent numbers.
+- For every failure or blocker, name the next action (e.g. fix the failing assertion in `src/lib/games.test.ts`, run `npm ci`, run `npm run lint -- --fix`).
+- Never describe a skipped or incomplete check as "passed". Mark it as skipped or blocked and say why.
+
+Example:
+
+```
+- `npm run test:unit` — passed (41 tests, 4 files)
+- `npm run lint` — failed (3 errors). Next: run `npm run lint -- --fix`, then resolve the remainder manually.
+- `npm run typecheck:all` — blocked (`astro: command not found`). Next: run `npm ci`, then re-run.
+```
+
+---
+
 ## Verification Policy
 
 ### Unit Tests, Lint, and Type Checks Must Pass Before Commit/Merge
