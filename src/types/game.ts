@@ -25,3 +25,11 @@ export interface Game {
     category: Category | null;
     starRating: number | null;
 }
+
+/** Optional filters for listing games. */
+export interface GameFilters {
+    /** Match games in any of these categories. */
+    categoryIds?: number[];
+    /** Match games from this publisher. */
+    publisherId?: number;
+}
